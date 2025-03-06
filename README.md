@@ -1,0 +1,1 @@
+# Project for learning test design patterns
