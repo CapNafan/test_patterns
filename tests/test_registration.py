@@ -1,5 +1,3 @@
-import time
-
 from pages.registration_page import RegistrationPage
 
 
@@ -20,3 +18,5 @@ class TestRegistrationPage:
         self.registration_page.choose_male_gender()
         self.registration_page.agree_to_terms_and_conditions()
         self.registration_page.click_submit_button()
+
+        assert self.registration_page.is_registration_successful()
