@@ -7,10 +7,10 @@ from selenium.webdriver.common.by import By
 class HomePage(BasePage):
     _PAGE_URL = "https://demo.opensource-socialnetwork.org/home"
 
-    _POST_BODY = ("xpath", "//textarea[@name='post']")
-    _POST_BUTTON = ("xpath", "//input[@type='submit']")
+    _POST_BODY = "//textarea[@name='post']"
+    _POST_BUTTON = "//input[@type='submit']"
     _PUBLISHED_POST_TEXT = "//div//p[contains(text(), '{value}')]"
-    _ERROR_MESSAGE = ("xpath", "//div[contains(text(), 'Cannot create post! Please try again later.')]")
+    _ERROR_MESSAGE = "//div[contains(text(), 'Cannot create post! Please try again later.')]"
 
     def add_post_text(self, text):
         post_body_input = self.driver.find_element(*self._POST_BODY)
@@ -21,7 +21,7 @@ class HomePage(BasePage):
         post_button.click()
 
     def _wait_for_post_to_appear(self, text):
-        locator = (By.XPATH, self._PUBLISHED_POST_TEXT.format(value=text))
+        locator = (By.XPATH, self._PUBLISHED_POST_TEXT[1].format(value=text))
         return WebDriverWait(self.driver, timeout=10).until(ec.presence_of_element_located(locator))
 
     def is_post_published(self, text):
