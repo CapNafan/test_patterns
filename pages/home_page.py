@@ -4,10 +4,11 @@ from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
+from data.links import Links
 
 
 class HomePage(BasePage):
-    _PAGE_URL = "https://demo.opensource-socialnetwork.org/home"
+    _PAGE_URL = Links.HOME
 
     _POST_BODY = "//textarea[@name='post']"
     _POST_BUTTON = "//input[@type='submit']"
